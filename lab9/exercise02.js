@@ -8,7 +8,8 @@ class MIUSA { //MIUSA stands for MIU Student activity
 
     register(student, activity) {
         if (!this.students[student]) {
-            this.studentss[student] = [activity];
+            //this.studentss[student] = [activity];
+            this.students[student] = [activity];
         } else {
             this.students[student].push(activity);
         }
@@ -20,8 +21,8 @@ class MIUSA { //MIUSA stands for MIU Student activity
         }
     }
 
-    cancelAnimationFrame(student, activity) {
-        this.students[student] = this.students.filter(act => act !== activity);
+    cancel(student, activity) {
+        this.students[student] = this.students[student].filter(act => act !== activity);
     }
 }
 const miuSA = new MIUSA();
@@ -35,5 +36,8 @@ miuSA.register('Maharishi', deepTalk);
 miuSA.register('Naha', deepTalk);
 miuSA.register('Maharishi', deepTalk);
 
+miuSA.notify("Naha", 'deeptTlak tonight 7:30PM');
+miuSA.notify('Maharishi', 'deeptTlak tonight 7:30PM, you are one guest speaker!');
+miuSA.cancel('Maharishi', deepTalk);
 miuSA.notify("Naha", 'deeptTlak tonight 7:30PM');
 miuSA.notify('Maharishi', 'deeptTlak tonight 7:30PM, you are one guest speaker!');
